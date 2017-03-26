@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>default</key>
+	<dict>
+		<key>primary</key>
+		<string>313133</string>
+		<key>primaryDark</key>
+		<string>313133</string>
+		<key>accent</key>
+		<string>2c3e50</string>
+		<key>text</key>
+		<string>193441</string>
+		<key>imageTint</key>
+		<string>f1c40f</string>
+		<key>background</key>
+		<string>313133</string>
+	</dict>
+</dict>
+</plist>

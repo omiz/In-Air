@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sGH-ZM-bdM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="4GC-uF-SLl">
+            <objects>
+                <navigationController id="sGH-ZM-bdM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BqM-p8-nlW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="B7c-Ue-RZ4" kind="relationship" relationship="rootViewController" id="Pb8-QB-EG5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdD-Q8-72x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="238" y="90"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="mth-7H-E82">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B7c-Ue-RZ4" customClass="MainViewController" customModule="In_Air" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WI1-a5-PAl"/>
+                        <viewControllerLayoutGuide type="bottom" id="UdZ-h1-aSK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b9u-AQ-MGO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8lD-Dj-9eT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="7SS-J1-uch">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="B7c-Ue-RZ4" id="1e2-kv-Cul"/>
+                                    <outlet property="delegate" destination="B7c-Ue-RZ4" id="Pa5-39-WHN"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2t-d6-wet" customClass="BottomView" customModule="In_Air" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="595" width="375" height="72"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vo-2C-tx8">
+                                        <rect key="frame" x="323" y="10" width="52" height="52"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="settings"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rb6-YK-qyC">
+                                        <rect key="frame" x="152" y="0.0" width="72" height="72"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        <state key="normal" image="play"/>
+                                        <connections>
+                                            <action selector="playToggle:" destination="L2t-d6-wet" eventType="touchUpInside" id="ogD-HN-3ZE"/>
+                                            <segue destination="Ceh-H7-SOB" kind="show" id="5GU-Bz-VOW">
+                                                <segue key="commit" destination="Ceh-H7-SOB" kind="show" id="kat-aO-dj5"/>
+                                                <segue key="preview" destination="Ceh-H7-SOB" id="WMg-FX-MnM"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="rb6-YK-qyC" firstAttribute="top" secondItem="L2t-d6-wet" secondAttribute="top" id="8Uz-hm-XvO"/>
+                                    <constraint firstAttribute="bottom" secondItem="rb6-YK-qyC" secondAttribute="bottom" id="8VG-Sc-a7B"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Vo-2C-tx8" secondAttribute="trailing" id="VpC-Y2-Ujr"/>
+                                    <constraint firstItem="rb6-YK-qyC" firstAttribute="centerX" secondItem="L2t-d6-wet" secondAttribute="centerX" id="f3u-XR-jOA"/>
+                                    <constraint firstItem="2Vo-2C-tx8" firstAttribute="centerY" secondItem="L2t-d6-wet" secondAttribute="centerY" id="xUc-Zf-tHn"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="playButton" destination="rb6-YK-qyC" id="Khi-jW-EsA"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8lD-Dj-9eT" secondAttribute="trailing" id="3Ig-nL-oGf"/>
+                            <constraint firstAttribute="trailing" secondItem="L2t-d6-wet" secondAttribute="trailing" id="44h-h0-5WV"/>
+                            <constraint firstItem="L2t-d6-wet" firstAttribute="leading" secondItem="b9u-AQ-MGO" secondAttribute="leading" id="I3M-41-hWr"/>
+                            <constraint firstItem="8lD-Dj-9eT" firstAttribute="top" secondItem="WI1-a5-PAl" secondAttribute="bottom" id="JKI-SZ-IQ6"/>
+                            <constraint firstItem="8lD-Dj-9eT" firstAttribute="leading" secondItem="b9u-AQ-MGO" secondAttribute="leading" id="Y1O-wi-ZbF"/>
+                            <constraint firstItem="UdZ-h1-aSK" firstAttribute="top" secondItem="L2t-d6-wet" secondAttribute="bottom" id="ny7-KH-P9h"/>
+                            <constraint firstItem="L2t-d6-wet" firstAttribute="top" secondItem="8lD-Dj-9eT" secondAttribute="bottom" id="tFC-GX-q30"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="22Y-P2-6Ee"/>
+                    <connections>
+                        <outlet property="bottomView" destination="L2t-d6-wet" id="zGq-2a-CEt"/>
+                        <outlet property="collectionView" destination="8lD-Dj-9eT" id="EIq-J5-0EW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zmg-zM-QIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="993" y="90"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WXh-aI-ZE0">
+            <objects>
+                <viewController id="Ceh-H7-SOB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hdV-3l-jDI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zob-U9-css"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lc9-R2-uBz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6im-cT-GRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1943" y="103"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="play" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5GU-Bz-VOW"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

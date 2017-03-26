@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Modern Sans.otf">
+            <string>ModernSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlayerView" customModule="In_Air" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ivd-eI-4Jp" customClass="AudioEqualizer" customModule="In_Air" customModuleProvider="target">
+                    <rect key="frame" x="8" y="29" width="30" height="17"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Zdh-GL-gEc"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-GJ-2mh">
+                    <rect key="frame" x="438" y="21.5" width="32" height="32"/>
+                    <state key="normal" image="play"/>
+                    <connections>
+                        <action selector="playToggle:" destination="iN0-l3-epB" eventType="touchUpInside" id="Gif-4C-D9d"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQs-yD-z48">
+                    <rect key="frame" x="46" y="29" width="60" height="22"/>
+                    <fontDescription key="fontDescription" name="ModernSans" family="Modern Sans" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Lpe-ep-OMR">
+                    <rect key="frame" x="13" y="27.5" width="20" height="20"/>
+                    <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Mgm-GJ-2mh" secondAttribute="trailing" constant="8" id="8V6-27-yG4"/>
+                <constraint firstItem="Lpe-ep-OMR" firstAttribute="centerY" secondItem="Ivd-eI-4Jp" secondAttribute="centerY" id="Eyv-Np-Teb"/>
+                <constraint firstItem="Ivd-eI-4Jp" firstAttribute="bottom" secondItem="gQs-yD-z48" secondAttribute="bottom" constant="-5" id="RgV-W0-G3V"/>
+                <constraint firstItem="Ivd-eI-4Jp" firstAttribute="top" secondItem="gQs-yD-z48" secondAttribute="top" id="Ubk-xU-c7z"/>
+                <constraint firstItem="gQs-yD-z48" firstAttribute="leading" secondItem="Ivd-eI-4Jp" secondAttribute="trailing" constant="8" id="Ucy-z6-CxU"/>
+                <constraint firstItem="Ivd-eI-4Jp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Wu5-Ab-sQV"/>
+                <constraint firstItem="Mgm-GJ-2mh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gQs-yD-z48" secondAttribute="trailing" constant="8" id="Xlu-qJ-e2m"/>
+                <constraint firstItem="Mgm-GJ-2mh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="loE-3j-7fH"/>
+                <constraint firstItem="Ivd-eI-4Jp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="oU7-P3-zze"/>
+                <constraint firstItem="Lpe-ep-OMR" firstAttribute="centerX" secondItem="Ivd-eI-4Jp" secondAttribute="centerX" id="y0X-FU-GTn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activityIndicator" destination="Lpe-ep-OMR" id="0Gf-Un-SpZ"/>
+                <outlet property="button" destination="Mgm-GJ-2mh" id="dLu-Et-O5X"/>
+                <outlet property="equalizer" destination="Ivd-eI-4Jp" id="2Ff-J5-qna"/>
+                <outlet property="label" destination="gQs-yD-z48" id="TIL-UT-axV"/>
+            </connections>
+            <point key="canvasLocation" x="-47" y="-167.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="play" width="32" height="32"/>
+    </resources>
+</document>
