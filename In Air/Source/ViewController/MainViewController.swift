@@ -77,8 +77,6 @@ extension MainCollectionView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delay(0) {
-            PlayerView.shared.setup(self.dataSource[indexPath.row])
-
             Player.shared.airport = self.dataSource[indexPath.row]
             Player.shared.play()
         }

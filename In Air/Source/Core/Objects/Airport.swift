@@ -39,3 +39,15 @@ class Airport: Mappable {
 func ==(lhs: Airport, rhs: Airport) -> Bool {
    return lhs.id == rhs.id
 }
+
+func ==(lhs: Airport?, rhs: Airport?) -> Bool {
+    return lhs?.id == rhs?.id
+}
+
+func !=(lhs: Airport, rhs: Airport) -> Bool {
+    return !(lhs.id == rhs.id)
+}
+
+func !=(lhs: Airport?, rhs: Airport?) -> Bool {
+    return !(lhs?.id == rhs?.id)
+}

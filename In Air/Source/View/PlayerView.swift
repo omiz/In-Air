@@ -30,13 +30,17 @@ class PlayerView: UIView {
         didSet {
             let image = UIImage(named: isPlaying ? "pause" : "play")?.with(color: UIColor.imageTint)
             button.setImage(image, for: .normal)
+
+            if isPlaying {
+                show()
+            }
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        UIApplication.shared.delegate?.window??.addSubview(self)
+        observeNotification()
 
         let inset = UIEdgeInsets.init(top: padding, left: padding, bottom: padding, right: padding)
 
@@ -59,11 +63,57 @@ class PlayerView: UIView {
         isPlaying = Player.shared.isPlaying
     }
 
+    func prepare() {
+        self.alpha = 0
+    }
+
+    func show() {
+        if superview == nil {
+            UIApplication.shared.delegate?.window??.addSubview(self)
+        }
+
+        UIView.animate(withDuration: 0.5) {
+            self.alpha = 1
+        }
+    }
+
+    func hide() {
+        UIView.animate(withDuration: 0.5, animations: { 
+            self.alpha = 0
+        }) { finished in
+            if finished {
+                self.removeFromSuperview()
+            }
+        }
+    }
+
+    func observeNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(stateChanged(_:)),
+            name: Player.Notifications.stateChanged.name,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(airportChanged(_:)),
+            name: Player.Notifications.airportChanged.name,
+            object: nil)
+
+    }
+
+    func stateChanged(_ notification: Notification) {
+        setPlaying(Player.shared.isPlaying)
+    }
+
+    func airportChanged(_ notification: Notification) {
+        let airport = notification.object as? Airport
+        setup(airport)
+    }
+
     @IBAction func playToggle(_ sender: UIButton) {
 
         Player.shared.togglePlay()
-
-        setPlaying(Player.shared.isPlaying)
     }
 
     func setPlaying(_ isPlaying: Bool) {
@@ -71,7 +121,11 @@ class PlayerView: UIView {
         self.equalizer.isAnimating = isPlaying
     }
 
-    func setup(_ airport: Airport) {
-        label.text = airport.title
+    func setup(_ airport: Airport?) {
+        label.text = airport?.title ?? ""
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

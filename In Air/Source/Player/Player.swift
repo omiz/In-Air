@@ -35,7 +35,38 @@ class Player: NSObject {
     var state: PlayerState = .stopped {
         didSet {
             delegate?.player(stateChanged: state)
+
+            if state != oldValue {
+                NotificationCenter.default.post(name: Notifications.stateChanged.name, object: state)
+            }
+
+            if state == .stopped {
+                try? session.setActive(false)
+            }
         }
+    }
+
+    var airportVolume: Float = 0.3 {
+        didSet {
+            if isPlaying {
+                airportPlayer.volume = airportVolume
+            }
+        }
+    }
+
+    var musicVolume: Float = 0.9 {
+        didSet {
+            if isPlaying {
+                musicplayer.volume = musicVolume
+            }
+        }
+    }
+
+    enum Notifications: String, NotificationName {
+        case stateChanged
+
+        case airportChanged
+        case musicChanged
     }
 
     var airportPlayer: AVPlayer
@@ -49,8 +80,15 @@ class Player: NSObject {
 
         super.init()
 
+        commonInit()
+    }
+
+    func commonInit() {
         airportPlayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.rate), options: .new, context: &airportPlayer)
+        airportPlayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.error), options: .new, context: &airportPlayer)
         musicplayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.rate), options: .new, context: &musicplayer)
+
+        music = Music()
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -59,7 +97,14 @@ class Player: NSObject {
 
         guard context == &airportPlayer || context == &musicplayer else { return }
 
-        state = airportPlayer.isPlaying || musicplayer.isPlaying ? .playing : .paused
+        print(airportPlayer.error ?? "")
+        print(musicplayer.error ?? "")
+
+        let airPlaying = airportPlayer.isPlaying
+
+        let musicPlaying = musicplayer.isPlaying
+
+        state = airPlaying || musicPlaying ? .playing : .paused
     }
 
     class var shared : Player {
@@ -71,13 +116,19 @@ class Player: NSObject {
 
     var airport: Airport? {
         didSet {
-            setupAirport()
+            if airport != oldValue {
+                setupAirport()
+                NotificationCenter.default.post(name: Notifications.airportChanged.name, object: airport)
+            }
         }
     }
 
     var music: Music? {
         didSet {
-            setupMusic()
+            if music != oldValue {
+                setupMusic()
+                NotificationCenter.default.post(name: Notifications.musicChanged.name, object: music)
+            }
         }
     }
 
@@ -91,6 +142,8 @@ class Player: NSObject {
 
         let airportItem = AVPlayerItem(url: url)
         airportPlayer.replaceCurrentItem(with: airportItem)
+
+        airportPlayer.volume = airportVolume
     }
 
     func setupMusic() {
@@ -99,9 +152,12 @@ class Player: NSObject {
 
         let airportItem = AVPlayerItem(url: url)
         musicplayer.replaceCurrentItem(with: airportItem)
+
+        musicplayer.volume = musicVolume
     }
 
     func play(_ type: PlayerType = .all) {
+        pause()
         try? session.setCategory(AVAudioSessionCategoryPlayback)
         try? session.setActive(true, with: .notifyOthersOnDeactivation)
 
@@ -113,8 +169,10 @@ class Player: NSObject {
             setupMusic()
             musicplayer.play()
         default:
-            airportPlayer.play()
+            setupAirport()
+            setupMusic()
             musicplayer.play()
+            airportPlayer.play()
         }
     }
 
@@ -151,3 +209,5 @@ extension AVPlayer {
         return rate != 0 && error == nil
     }
 }
+
+

@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
 
+        PlayerView.shared.prepare()
+
         return false
     }
 
