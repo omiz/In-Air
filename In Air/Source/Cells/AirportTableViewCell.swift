@@ -38,6 +38,8 @@ class AirportTableViewCell: UITableViewCell {
         containerView.layer.masksToBounds = true
         titleLable.textColor = .white
         statusLabel.textColor = .gray
+
+        statusLabel.text = ""
     }
 
     func setup(_ airport: Airport) {
