@@ -10,13 +10,13 @@ import UIKit
 
 extension UISearchBar {
 
-    open var textField: UITextField! {
+    open var textField: UITextField? {
         let svs = subviews.flatMap { $0.subviews }
         guard let tf = (svs.filter { $0 is UITextField }).first as? UITextField else { return nil }
         return tf
     }
 
-   open var label: UILabel! {
+   open var label: UILabel? {
       return textField?.value(forKey: "placeholderLabel") as? UILabel
    }
 

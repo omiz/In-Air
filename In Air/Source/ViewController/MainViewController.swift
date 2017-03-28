@@ -31,23 +31,7 @@ class MainViewController: UIViewController {
 
    var baseDataSource: [Airport] = []
 
-   var dataSource: [Airport] {
-      var result = baseDataSource
-
-      if let activeContinent = activeContinent {
-         result = result.filter {
-            $0.continentId == activeContinent
-         }
-      }
-
-      if let keyWord = keyWord, !keyWord.isEmpty {
-         result = result.filter {
-            $0.title.contains(keyWord)
-         }
-      }
-
-      return result
-   }
+   var dataSource: [Airport] = []
 
    var continents: [Continent] = []
 
@@ -83,18 +67,27 @@ class MainViewController: UIViewController {
          let indexPath = IndexPath(row: 0, section: 0)
          tableView.scrollToRow(at: indexPath, at: .top, animated: false)
       }
+   }
 
+   func filterIfNeeded() {
+      dataSource = baseDataSource
+
+      if let activeContinent = activeContinent {
+         dataSource = dataSource.filter {
+            $0.continentId == activeContinent
+         }
+      }
+
+      if let keyWord = keyWord, !keyWord.isEmpty {
+         dataSource = dataSource.filter {
+            $0.title.contains(keyWord)
+         }
+      }
    }
 
    func setupSearchBar() {
-      let attribute = TextAttributes()
-         .font(name: "Modern Sans", size: 17)
-      .foregroundColor(.lightText)
-
       searchBar.textColor = UIColor.white
-
-      searchBar.label.attributedText = NSAttributedString(string: "Airport",
-                                                          attributes: attribute)
+      searchBar.label?.textColor = .lightText
       searchBar.delegate = self
    }
 
@@ -214,11 +207,15 @@ extension MainUpdater {
          $0.title < $1.title
       }
 
+      filterIfNeeded()
+
       tableView.reloadData()
    }
 
    func load(continent: Continent) {
       activeContinent = continents.index{ $0.id == continent.id }
+
+      filterIfNeeded()
 
       tableView.reloadData()
    }
@@ -286,6 +283,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension MainViewController: UISearchBarDelegate {
    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
       keyWord = searchText
+
+      filterIfNeeded()
 
       tableView.reloadData()
    }
