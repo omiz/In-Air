@@ -37,14 +37,14 @@
                         <outlet property="delegate" destination="-1" id="YpE-dL-oWr"/>
                     </connections>
                 </tableView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-eQ-VrI">
-                    <rect key="frame" x="0.0" y="-60" width="375" height="60"/>
+                <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-eQ-VrI">
+                    <rect key="frame" x="20" y="-120" width="335" height="120"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="3Ha-MB-SJc"/>
+                        <constraint firstAttribute="height" constant="120" id="3Ha-MB-SJc"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kvo-LN-1lh">
-                        <size key="itemSize" width="75" height="50"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="kvo-LN-1lh">
+                        <size key="itemSize" width="75" height="100"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -60,10 +60,10 @@
                 <constraint firstItem="xEf-Zt-DcX" firstAttribute="leading" secondItem="Ocx-Eq-EAb" secondAttribute="leading" id="3TP-59-Vju"/>
                 <constraint firstItem="xEf-Zt-DcX" firstAttribute="top" secondItem="Ocx-Eq-EAb" secondAttribute="top" id="6ze-jI-PBO"/>
                 <constraint firstItem="hZx-eQ-VrI" firstAttribute="bottom" secondItem="Ocx-Eq-EAb" secondAttribute="top" id="8UZ-Xz-IGg"/>
-                <constraint firstItem="hZx-eQ-VrI" firstAttribute="leading" secondItem="Ocx-Eq-EAb" secondAttribute="leading" id="Huf-bs-Taq"/>
+                <constraint firstItem="hZx-eQ-VrI" firstAttribute="leading" secondItem="Ocx-Eq-EAb" secondAttribute="leading" constant="20" id="Huf-bs-Taq"/>
                 <constraint firstAttribute="bottom" secondItem="xEf-Zt-DcX" secondAttribute="bottom" id="W1J-oL-jQq"/>
                 <constraint firstAttribute="trailing" secondItem="xEf-Zt-DcX" secondAttribute="trailing" id="k9J-oh-7ay"/>
-                <constraint firstAttribute="trailing" secondItem="hZx-eQ-VrI" secondAttribute="trailing" id="vpy-zZ-1xg"/>
+                <constraint firstAttribute="trailing" secondItem="hZx-eQ-VrI" secondAttribute="trailing" constant="20" id="vpy-zZ-1xg"/>
             </constraints>
             <point key="canvasLocation" x="-388.5" y="54.5"/>
         </view>

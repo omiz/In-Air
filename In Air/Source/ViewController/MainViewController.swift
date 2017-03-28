@@ -29,16 +29,19 @@ class MainViewController: UIViewController {
 
     var dataSource: [Airport] = []
 
+    var continents: [Continent] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
+        setupContinents()
+        setupPlayer()
+
         setupSearchBar()
         setupTableView()
         setupCollectionView()
-        setupPlayer()
         setupGesture()
-
         //      DataManager.main.get(type: Airport.self, onUpdate: onUpdate)
     }
 
@@ -78,7 +81,21 @@ class MainViewController: UIViewController {
         gesture.delegate = self
     }
 
+    func setupContinents() {
+        continents.append(Continent(0, title: "Africa", description: ""))
+        continents.append(Continent(1, title: "Europe", description: ""))
+        continents.append(Continent(2, title: "Asia", description: ""))
+        continents.append(Continent(3, title: "North America", description: ""))
+        continents.append(Continent(4, title: "South America", description: ""))
+        continents.append(Continent(5, title: "Antarctica", description: ""))
+        continents.append(Continent(6, title: "Australia", description: ""))
+    }
+
     func pan(_ gesture: UIPanGestureRecognizer) {
+        guard tableView.contentOffset.y < -50 else {
+            return
+        }
+
         let point = gesture.location(in: self.view)
 
         let height = collectionView.frame.height / 2
@@ -93,20 +110,29 @@ class MainViewController: UIViewController {
 
         collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
 
-        if point.x < 30 {
+        if point.x < 75 {
             indexPath.row = indexPath.row > 0 ? indexPath.row - 1 : indexPath.row
 
             let rect = collectionView.layoutAttributesForItem(at: indexPath)?.frame
             collectionView.scrollRectToVisible(rect!, animated: true)
         }
 
-        if point.x > view.frame.width - 50 {
+        if point.x > view.frame.width - 75 {
             let count = collectionView.numberOfItems(inSection: 0)
             indexPath.row = indexPath.row < count ? indexPath.row + 1 : indexPath.row
             indexPath.row = indexPath.row == count ? indexPath.row - 1 : indexPath.row
 
             let rect = collectionView.layoutAttributesForItem(at: indexPath)?.frame
             collectionView.scrollRectToVisible(rect!, animated: true)
+        }
+
+        if gesture.state == .ended {
+            var offset = -tableView.contentOffset.y
+
+
+            offset = offset > 50 ? offset - 50 : 0
+
+            print(collectionView.indexPathsForSelectedItems ?? [] )
         }
     }
 }
@@ -173,13 +199,25 @@ extension MainCollectionView: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let font = UIFont(name: "Modern Sans", size: 17) ?? UIFont.systemFont(ofSize: 17)
+        let title = NSString(string: continents[indexPath.row].title)
+
+        let size = title.size(attributes: [NSFontAttributeName: font])
+
+
+        return CGSize(width: size.width, height: collectionView.frame.height)
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return continents.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.cell(ContinentCollectionViewCell.self, indexPath: indexPath)
-        cell.label.text = "label \(indexPath.row)"
+        cell.label.text = continents[indexPath.row].title
         return cell
     }
 }

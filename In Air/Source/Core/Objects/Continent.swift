@@ -16,5 +16,13 @@ class Continent: Group {
 
    var description: String = ""
 
-   var airports: [Airport] = []
+    init(_ id: Int, title: String, description: String) {
+        self.id = id
+        self.title = title
+        self.description = description
+    }
+
+    convenience init() {
+        self.init(0, title: "", description: "")
+    }
 }
