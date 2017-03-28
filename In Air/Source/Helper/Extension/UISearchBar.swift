@@ -16,6 +16,10 @@ extension UISearchBar {
         return tf
     }
 
+   open var label: UILabel! {
+      return textField?.value(forKey: "placeholderLabel") as? UILabel
+   }
+
     var textColor: UIColor? {
         get {
             return textField?.textColor

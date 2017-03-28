@@ -21,6 +21,8 @@ class Airport: Mappable {
 
    var isOnline: Bool = true
 
+   var continentId: Int = -1
+
    init() {}
    
    required init?(map: Map){
@@ -32,6 +34,7 @@ class Airport: Mappable {
       title <- map["title"]
       detail <- map["detail"]
       url <- map["url"]
+      continentId <- map["continentId"]
    }
 }
 

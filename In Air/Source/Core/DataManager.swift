@@ -62,6 +62,7 @@ class DataManager {
                   airport.title = i?["title"] as? String ?? ""
                   airport.detail = i?["detail"] as? String ?? ""
                   airport.url = i?["url"] as? String ?? ""
+                  airport.continentId = i?["continentId"] as? Int ?? -1
 
                   airports.append(airport)
                }
