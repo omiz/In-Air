@@ -16,7 +16,7 @@ class Music {
 
    var description: String = ""
 
-   var url: String = "https://freemusicarchive.org/music/download/31711f77f3682a5c1f426284df9796c718134d5a"
+   var url: String = "http://media.dartmouth.edu/~healthed/metallophone_peace.mp3"
 }
 
 func ==(lhs: Music, rhs: Music) -> Bool {
