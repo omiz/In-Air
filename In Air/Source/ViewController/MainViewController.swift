@@ -31,6 +31,12 @@ class MainViewController: UIViewController {
 
     var continents: [Continent] = []
 
+    var isCollectionActive: Bool {
+        return tableView.contentOffset.y < -safeSpace
+    }
+
+    let safeSpace: CGFloat = 50
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -92,11 +98,24 @@ class MainViewController: UIViewController {
     }
 
     func pan(_ gesture: UIPanGestureRecognizer) {
-        guard tableView.contentOffset.y < -50 else {
+        guard isCollectionActive else {
             return
         }
 
-        let point = gesture.location(in: self.view)
+        guard let indexPath = indexPath(in: gesture.location(in: self.view)) else {
+            return
+        }
+
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
+
+        if let rect = collectionView.layoutAttributesForItem(at: indexPath)?.frame {
+            collectionView.scrollRectToVisible(rect, animated: true)
+        }
+
+        checkTouchEnd(gesture)
+    }
+
+    func indexPath(in point: CGPoint) -> IndexPath? {
 
         let height = collectionView.frame.height / 2
 
@@ -104,37 +123,39 @@ class MainViewController: UIViewController {
 
         let itemPoint = CGPoint(x: x, y: height)
 
-        guard var indexPath = collectionView.indexPathForItem(at: itemPoint) else {
-            return
+        return checkIndex(on: point, indexPath: collectionView.indexPathForItem(at: itemPoint))
+    }
+
+    func checkIndex(on point: CGPoint, indexPath: IndexPath?) -> IndexPath? {
+        guard var indexPath = indexPath else {
+            return nil
         }
 
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
-
-        if point.x < 75 {
+        if point.x < safeSpace {
             indexPath.row = indexPath.row > 0 ? indexPath.row - 1 : indexPath.row
-
-            let rect = collectionView.layoutAttributesForItem(at: indexPath)?.frame
-            collectionView.scrollRectToVisible(rect!, animated: true)
         }
 
-        if point.x > view.frame.width - 75 {
+        if point.x > view.frame.width - safeSpace {
             let count = collectionView.numberOfItems(inSection: 0)
             indexPath.row = indexPath.row < count ? indexPath.row + 1 : indexPath.row
             indexPath.row = indexPath.row == count ? indexPath.row - 1 : indexPath.row
-
-            let rect = collectionView.layoutAttributesForItem(at: indexPath)?.frame
-            collectionView.scrollRectToVisible(rect!, animated: true)
         }
 
-        if gesture.state == .ended {
-            var offset = -tableView.contentOffset.y
-
-
-            offset = offset > 50 ? offset - 50 : 0
-
-            print(collectionView.indexPathsForSelectedItems ?? [] )
-        }
+        return indexPath
     }
+
+    func checkTouchEnd(_ gesture: UIPanGestureRecognizer) {
+        guard gesture.state == .ended, isCollectionActive else {
+            return
+        }
+
+        guard let index = collectionView.indexPathsForSelectedItems?[0].row else {
+            return
+        }
+
+        load(continent: continents[index])
+    }
+
 }
 
 extension MainViewController: UIGestureRecognizerDelegate {
@@ -160,6 +181,11 @@ extension MainUpdater {
         dataSource = airports
 
         tableView.reloadData()
+    }
+
+    func load(continent: Continent) {
+        //TODO: load content for continent
+        print("load content for \(continent.title)")
     }
 }
 
