@@ -10,30 +10,30 @@ import UIKit
 
 struct ThemeManager {
 
-    static func apply() {
+   static func apply() {
 
-        let sharedApplication = UIApplication.shared
-        sharedApplication.delegate?.window??.tintColor = UIColor.primary
+      let sharedApplication = UIApplication.shared
+      sharedApplication.delegate?.window??.tintColor = UIColor.primary
 
-        UINavigationBar.appearance().barTintColor = UIColor.background
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.accent]
-        UINavigationBar.appearance().isTranslucent = false
+      UINavigationBar.appearance().barTintColor = UIColor.background
+      UINavigationBar.appearance().tintColor = UIColor.white
+      UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.accent]
+      UINavigationBar.appearance().isTranslucent = false
 
-        UISwitch.appearance().onTintColor = UIColor.primary.withAlphaComponent(0.3)
-        UISwitch.appearance().thumbTintColor = UIColor.primary
+      UISwitch.appearance().onTintColor = UIColor.primary.withAlphaComponent(0.3)
+      UISwitch.appearance().thumbTintColor = UIColor.primary
 
-        UITableViewCell.appearance().tintColor = UIColor.primary
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.primary.withAlphaComponent(0.6)
-        UITableViewCell.appearance().selectedBackgroundView = bgColorView
+      UITableViewCell.appearance().tintColor = UIColor.primary
+      let bgColorView = UIView()
+      bgColorView.backgroundColor = UIColor.primary.withAlphaComponent(0.6)
+      UITableViewCell.appearance().selectedBackgroundView = bgColorView
 
-        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
+      UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
 
-        UIView.appearance().backgroundColor = .clear
+      UIView.appearance().backgroundColor = .clear
 
-        UITableView.appearance().backgroundColor = .clear
+      UITableView.appearance().backgroundColor = .clear
 
-        UILabel.appearance().textColor = .text
-    }
+      UILabel.appearance().textColor = .text
+   }
 }

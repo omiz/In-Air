@@ -245,6 +245,8 @@ extension MainCollectionView: UITableViewDelegate, UITableViewDataSource {
          return
       }
 
+      navigationController?.navigationBar.shadowImageView?.isHidden = scrollView.contentOffset.y < 0
+
       let spaceFromTop = -scrollView.contentOffset.y
 
       guard spaceFromTop >= 0 else {

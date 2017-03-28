@@ -16,6 +16,7 @@
 		E036065C1E8545D800F1500F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036065A1E8545D800F1500F /* MainViewController.swift */; };
 		E036065D1E8545D800F1500F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E036065B1E8545D800F1500F /* MainViewController.xib */; };
 		E03D44651E88765D00B77DFC /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03D44641E88765D00B77DFC /* Notification.swift */; };
+		E040FB881E8B011B0054BB72 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E040FB871E8B011B0054BB72 /* UINavigationBar.swift */; };
 		E043BAB91E7B2C08002D7298 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043BAB81E7B2C08002D7298 /* Airport.swift */; };
 		E043BABB1E7B3027002D7298 /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043BABA1E7B3027002D7298 /* Continent.swift */; };
 		E043BABD1E7B314F002D7298 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043BABC1E7B314F002D7298 /* Music.swift */; };
@@ -59,6 +60,7 @@
 		E036065A1E8545D800F1500F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E036065B1E8545D800F1500F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		E03D44641E88765D00B77DFC /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		E040FB871E8B011B0054BB72 /* UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		E043BAB81E7B2C08002D7298 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		E043BABA1E7B3027002D7298 /* Continent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Continent.swift; sourceTree = "<group>"; };
 		E043BABC1E7B314F002D7298 /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				E03D44641E88765D00B77DFC /* Notification.swift */,
 				E06CD2271E89303300199467 /* UISearchBar.swift */,
 				E09D321A1E89926A000D9C82 /* UICollectionView.swift */,
+				E040FB871E8B011B0054BB72 /* UINavigationBar.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				E03D44651E88765D00B77DFC /* Notification.swift in Sources */,
 				E0BA74CD1E7EC46000A1C830 /* UIImage.swift in Sources */,
 				E036065C1E8545D800F1500F /* MainViewController.swift in Sources */,
+				E040FB881E8B011B0054BB72 /* UINavigationBar.swift in Sources */,
 				E0D2E4DF1E87D53A000D6D1D /* UITableView.swift in Sources */,
 				E0BA74D41E7EE81400A1C830 /* UIViewController.swift in Sources */,
 				E043BAD11E7B5992002D7298 /* ThemeManager.swift in Sources */,
