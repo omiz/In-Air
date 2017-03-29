@@ -42,6 +42,8 @@
 		E0D2E4E31E880119000D6D1D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D2E4E21E880119000D6D1D /* PlayerView.swift */; };
 		E0D2E4E51E880151000D6D1D /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0D2E4E41E880151000D6D1D /* PlayerView.xib */; };
 		E0D2E4E81E880C27000D6D1D /* AudioEqualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D2E4E71E880C27000D6D1D /* AudioEqualizer.swift */; };
+		E0E1D1D31E8BD48A00B5B94B /* AirportPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D1D11E8BD48A00B5B94B /* AirportPreviewViewController.swift */; };
+		E0E1D1D41E8BD48A00B5B94B /* AirportPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E1D1D21E8BD48A00B5B94B /* AirportPreviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		E0D2E4E21E880119000D6D1D /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		E0D2E4E41E880151000D6D1D /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		E0D2E4E71E880C27000D6D1D /* AudioEqualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEqualizer.swift; sourceTree = "<group>"; };
+		E0E1D1D11E8BD48A00B5B94B /* AirportPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportPreviewViewController.swift; sourceTree = "<group>"; };
+		E0E1D1D21E8BD48A00B5B94B /* AirportPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirportPreviewViewController.xib; sourceTree = "<group>"; };
 		F1C5965BD6B3520E5EC44CF9 /* Pods-Clouds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clouds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clouds/Pods-Clouds.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,10 +282,20 @@
 		E0BA74E81E7F311900A1C830 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E0E1D1D01E8BD42B00B5B94B /* Airport */,
 				E036065A1E8545D800F1500F /* MainViewController.swift */,
 				E036065B1E8545D800F1500F /* MainViewController.xib */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E0E1D1D01E8BD42B00B5B94B /* Airport */ = {
+			isa = PBXGroup;
+			children = (
+				E0E1D1D11E8BD48A00B5B94B /* AirportPreviewViewController.swift */,
+				E0E1D1D21E8BD48A00B5B94B /* AirportPreviewViewController.xib */,
+			);
+			name = Airport;
 			sourceTree = "<group>";
 		};
 		ED10B1FF870DCFD3DFEF3432 /* Frameworks */ = {
@@ -323,13 +337,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Bemaxnet;
 				TargetAttributes = {
 					E01E13E91E7AD5B300CBE950 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = J95NXUX723;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -366,6 +385,7 @@
 				E01E13F31E7AD5B300CBE950 /* Main.storyboard in Resources */,
 				E036065D1E8545D800F1500F /* MainViewController.xib in Resources */,
 				E0BA74D61E7EE88600A1C830 /* Podfile in Resources */,
+				E0E1D1D41E8BD48A00B5B94B /* AirportPreviewViewController.xib in Resources */,
 				E0D2E4E51E880151000D6D1D /* PlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +448,7 @@
 				E043BACC1E7B4D9A002D7298 /* Colors.swift in Sources */,
 				E043BABB1E7B3027002D7298 /* Continent.swift in Sources */,
 				E043BAD41E7B5B02002D7298 /* Player.swift in Sources */,
+				E0E1D1D31E8BD48A00B5B94B /* AirportPreviewViewController.swift in Sources */,
 				E043BAB91E7B2C08002D7298 /* Airport.swift in Sources */,
 				E043BABD1E7B314F002D7298 /* Music.swift in Sources */,
 				E0D2E4E81E880C27000D6D1D /* AudioEqualizer.swift in Sources */,

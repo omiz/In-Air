@@ -24,27 +24,25 @@ class DataManager {
       return Static.instance
    }
 
-   @discardableResult
+   
    func get<T: Mappable>(_ url: String? = nil, type: T.Type, param: [String: Any]? = nil, retryCount: Int = 3, onUpdate: @escaping (([T]) -> Void)) {
 
-//      let dict = temp[Colors.colorKey] as! NSDictionary
+      Alamofire.request(baseUrl + (url ?? ""), parameters: param).responseArray { (response: DataResponse<[T]>) in
 
-//      Alamofire.request(baseUrl + (url ?? ""), parameters: param).responseArray { (response: DataResponse<[T]>) in
-//
-//         switch response.result {
-//
-//         case .success(let value):
-//            onUpdate(value)
-//
-//         case .failure:
-//            if retryCount > 0 {
-//               delay(10, closure: {
-//                  self.get(url, type: type, retryCount: retryCount - 1, onUpdate: onUpdate)
-//               })
-//            }
-//
-//         }
-//      }
+         switch response.result {
+
+         case .success(let value):
+            onUpdate(value)
+
+         case .failure:
+            if retryCount > 0 {
+               delay(10, closure: {
+                  self.get(url, type: type, retryCount: retryCount - 1, onUpdate: onUpdate)
+               })
+            }
+
+         }
+      }
    }
 
    func load() -> [Airport] {

@@ -59,6 +59,20 @@ class MainViewController: UIViewController {
       //      DataManager.main.get(type: Airport.self, onUpdate: onUpdate)
    }
 
+   func setup() {
+      view.backgroundColor = .background
+
+      setAttributedTitle("In Air")
+
+      if #available(iOS 9.0, *) {
+         if( traitCollection.forceTouchCapability == .available){
+
+            registerForPreviewing(with: self, sourceView: view)
+
+         }
+      }
+   }
+
    func hideSeachBar() {
       if tableView.visibleCells.count == 0 {
          let point = CGPoint(x: 0, y: searchBar.frame.height)
@@ -289,5 +303,25 @@ extension MainViewController: UISearchBarDelegate {
       filterIfNeeded()
 
       tableView.reloadData()
+   }
+}
+
+extension MainViewController: UIViewControllerPreviewingDelegate {
+
+   func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+
+      let location = CGPoint.init(x: location.x, y: location.y + tableView.contentOffset.y)
+
+      guard let indexPath = tableView?.indexPathForRow(at: location) else { return nil }
+
+      let controller = AirportPreviewViewController.instance
+
+      controller.airport = dataSource[indexPath.row]
+
+      return controller
+   }
+
+   func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+
    }
 }

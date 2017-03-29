@@ -29,10 +29,4 @@ extension UIViewController {
          .foregroundColor(Color.white)
 //         .lineHeightMultiple(1.5)
    }
-
-   func setup() {
-      view.backgroundColor = .background
-
-      setAttributedTitle("In Air")
-   }
 }

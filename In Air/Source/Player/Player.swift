@@ -144,6 +144,16 @@ class Player: NSObject {
       return airportPlayer.rate != 0 || musicplayer.rate != 0
    }
 
+   var shouldPlayInBackground: Bool {
+      get {
+         return UserDefaults.standard.bool(forKey: "shouldPlayInBackground")
+      }
+      set {
+         UserDefaults.standard.set(newValue, forKey: "shouldPlayInBackground")
+         UserDefaults.standard.synchronize()
+      }
+   }
+
    func setupAirport() {
       guard let value = airport else { return }
       guard let url = URL(string: airportUrl + value.url) else { return }
@@ -169,8 +179,9 @@ class Player: NSObject {
 
    func play(_ type: PlayerType = .all) {
       pause()
-      try? session.setCategory(AVAudioSessionCategoryAmbient)
-      try? session.setActive(true, with: .notifyOthersOnDeactivation)
+      let category = shouldPlayInBackground ? AVAudioSessionCategoryPlayback : AVAudioSessionCategorySoloAmbient
+      try? session.setCategory(category, with: .mixWithOthers)
+      try? session.setActive(true)
 
       switch type {
       case .airport:
@@ -188,6 +199,10 @@ class Player: NSObject {
    }
 
    func pause(_ type: PlayerType = .all) {
+      guard isPlaying else {
+         return
+      }
+      
       switch type {
       case .airport:
          airportPlayer.pause()
@@ -203,7 +218,7 @@ class Player: NSObject {
          musicplayer.replaceCurrentItem(with: nil)
       }
 
-      try? session.setActive(false)
+      try? session.setActive(false, with: .notifyOthersOnDeactivation)
    }
 
    func togglePlay() {

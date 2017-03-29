@@ -51,6 +51,7 @@ class PlayerView: UIView {
         layoutIfNeeded()
 
         layer.cornerRadius = 6
+      layer.zPosition = 1
 
         backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
 
