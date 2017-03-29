@@ -9,6 +9,9 @@ pod 'TextAttributes'
 #https://github.com/tristanhimmelman/AlamofireObjectMapper
 pod 'AlamofireObjectMapper', '~> 4.0'
 
+#https://github.com/onevcat/Kingfisher
+pod 'Kingfisher', '~> 3.0'
+
 target 'In Air' do
 end
 

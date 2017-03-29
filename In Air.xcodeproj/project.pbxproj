@@ -44,6 +44,7 @@
 		E0D2E4E81E880C27000D6D1D /* AudioEqualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D2E4E71E880C27000D6D1D /* AudioEqualizer.swift */; };
 		E0E1D1D31E8BD48A00B5B94B /* AirportPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D1D11E8BD48A00B5B94B /* AirportPreviewViewController.swift */; };
 		E0E1D1D41E8BD48A00B5B94B /* AirportPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E1D1D21E8BD48A00B5B94B /* AirportPreviewViewController.xib */; };
+		E0E1D1D81E8BEA7000B5B94B /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D1D71E8BEA7000B5B94B /* WeatherManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		E0D2E4E71E880C27000D6D1D /* AudioEqualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEqualizer.swift; sourceTree = "<group>"; };
 		E0E1D1D11E8BD48A00B5B94B /* AirportPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportPreviewViewController.swift; sourceTree = "<group>"; };
 		E0E1D1D21E8BD48A00B5B94B /* AirportPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirportPreviewViewController.xib; sourceTree = "<group>"; };
+		E0E1D1D71E8BEA7000B5B94B /* WeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		F1C5965BD6B3520E5EC44CF9 /* Pods-Clouds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clouds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clouds/Pods-Clouds.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,6 +261,7 @@
 		E0BA74E61E7F30B800A1C830 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E0E1D1D51E8BEA4B00B5B94B /* API */,
 				E043BAAD1E7B27BD002D7298 /* Cells */,
 				E043BAB61E7B2AA7002D7298 /* Core */,
 				E043BAC51E7B3857002D7298 /* Helper */,
@@ -296,6 +299,22 @@
 				E0E1D1D21E8BD48A00B5B94B /* AirportPreviewViewController.xib */,
 			);
 			name = Airport;
+			sourceTree = "<group>";
+		};
+		E0E1D1D51E8BEA4B00B5B94B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E0E1D1D61E8BEA5900B5B94B /* Weather */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		E0E1D1D61E8BEA5900B5B94B /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				E0E1D1D71E8BEA7000B5B94B /* WeatherManager.swift */,
+			);
+			name = Weather;
 			sourceTree = "<group>";
 		};
 		ED10B1FF870DCFD3DFEF3432 /* Frameworks */ = {
@@ -457,6 +476,7 @@
 				E0BA74D21E7EE00E00A1C830 /* UIView.swift in Sources */,
 				E06CD2281E89303300199467 /* UISearchBar.swift in Sources */,
 				E09D32181E8990E6000D9C82 /* ContinentCollectionViewCell.swift in Sources */,
+				E0E1D1D81E8BEA7000B5B94B /* WeatherManager.swift in Sources */,
 				E0D2E4DC1E87D1CF000D6D1D /* AirportTableViewCell.swift in Sources */,
 				E0D2E4E31E880119000D6D1D /* PlayerView.swift in Sources */,
 				E043BABF1E7B3246002D7298 /* Group.swift in Sources */,

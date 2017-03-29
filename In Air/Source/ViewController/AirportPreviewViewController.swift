@@ -11,6 +11,13 @@ import UIKit
 class AirportPreviewViewController: UIViewController {
 
    @IBOutlet weak var label: UILabel!
+   
+   @IBOutlet weak var cityLabel: UILabel!
+   
+   @IBOutlet weak var windDirectionLabel: UILabel!
+   @IBOutlet weak var windSpeedLabel: UILabel!
+   @IBOutlet weak var pressureLabel: UILabel!
+   @IBOutlet weak var visibilityLabel: UILabel!
 
    var airport: Airport?
 
@@ -21,13 +28,36 @@ class AirportPreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        label.text = airport?.title
+      setup()
+
+      WeatherManager.shared.forecast(for: airport?.title ?? "") {forecast,error in
+
+         guard let forecast = forecast else {
+            return
+         }
+
+         self.cityLabel.text = "\(forecast.city ?? ""),\(forecast.region ?? ""),\(forecast.country ?? "")"
+
+         self.windDirectionLabel.text = "wind: \(forecast.windDirection) ˚"
+         self.windSpeedLabel.text = "speed: \(forecast.windSpeed) \(forecast.speedUnit ?? "")"
+         self.pressureLabel.text = "pressure: \(forecast.pressure) \(forecast.pressureUnit ?? "")"
+         self.visibilityLabel.text = "visibility: \(forecast.visibility) \(forecast.distanceUnit ?? "")"
+      }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+   func setup() {
+      label.textColor = .white
+      cityLabel.textColor = .white
+      windDirectionLabel.textColor = .white
+      windSpeedLabel.textColor = .white
+      pressureLabel.textColor = .white
+      visibilityLabel.textColor = .white
+   }
     
 
     /*
@@ -42,21 +72,19 @@ class AirportPreviewViewController: UIViewController {
 
    @available(iOS 9.0, *)
    override var previewActionItems: [UIPreviewActionItem] {
+//
+//      let isPlaying = Player.shared.airport == airport && Player.shared.isPlaying
+//      let likeAction = UIPreviewAction(title: isPlaying ? "Stop" : "Play", style: .default) { (action, viewController) -> Void in
+//         if isPlaying {
+//            Player.shared.pause()
+//         } else {
+//            Player.shared.airport = self.airport
+//            Player.shared.play()
+//         }
+//      }
 
-      let isPlaying = Player.shared.airport == airport && Player.shared.isPlaying
-      let likeAction = UIPreviewAction(title: isPlaying ? "Stop" : "Play", style: .default) { (action, viewController) -> Void in
-         if isPlaying {
-            Player.shared.pause()
-         } else {
-            Player.shared.airport = self.airport
-            Player.shared.play()
-         }
-      }
+      let action = UIPreviewAction(title: "Done", style: .default) { (_, _) -> Void in }
 
-      let deleteAction = UIPreviewAction(title: "Delete", style: .destructive) { (action, viewController) -> Void in
-         print("You deleted the photo")
-      }
-
-      return [likeAction, deleteAction]
+      return [action]
    }
 }
