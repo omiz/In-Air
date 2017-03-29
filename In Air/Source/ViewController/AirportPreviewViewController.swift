@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AirportPreviewViewController: UIViewController {
 
@@ -18,6 +19,8 @@ class AirportPreviewViewController: UIViewController {
    @IBOutlet weak var windSpeedLabel: UILabel!
    @IBOutlet weak var pressureLabel: UILabel!
    @IBOutlet weak var visibilityLabel: UILabel!
+
+   @IBOutlet weak var imageView: UIImageView!
 
    var airport: Airport?
 
@@ -42,6 +45,10 @@ class AirportPreviewViewController: UIViewController {
          self.windSpeedLabel.text = "speed: \(forecast.windSpeed) \(forecast.speedUnit ?? "")"
          self.pressureLabel.text = "pressure: \(forecast.pressure) \(forecast.pressureUnit ?? "")"
          self.visibilityLabel.text = "visibility: \(forecast.visibility) \(forecast.distanceUnit ?? "")"
+
+         if let url = URL(string: "https://poweredby.yahoo.com/white.png") {
+            self.imageView.kf.setImage(with: url)
+         }
       }
     }
 

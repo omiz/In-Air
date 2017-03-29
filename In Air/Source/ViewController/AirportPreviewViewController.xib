@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AirportPreviewViewController" customModule="In_Air" customModuleProvider="target">
             <connections>
                 <outlet property="cityLabel" destination="12n-ck-s7v" id="cYY-hz-WHx"/>
+                <outlet property="imageView" destination="JNc-vb-s6o" id="Dgq-aW-AfI"/>
                 <outlet property="label" destination="rZt-wB-Bx5" id="r2H-Qq-84n"/>
                 <outlet property="pressureLabel" destination="ybb-GH-ZPu" id="Wg1-hZ-OQW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -66,7 +67,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JNc-vb-s6o">
+                <imageView verifyAmbiguity="ignoreSizes" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JNc-vb-s6o">
                     <rect key="frame" x="20" y="257" width="280" height="203"/>
                 </imageView>
             </subviews>
@@ -78,7 +79,7 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ybb-GH-ZPu" secondAttribute="trailing" constant="20" id="CV3-aD-9Z5"/>
                 <constraint firstItem="wM9-5P-rpR" firstAttribute="top" secondItem="12n-ck-s7v" secondAttribute="bottom" constant="10" id="Edx-UF-wj4"/>
                 <constraint firstItem="wM9-5P-rpR" firstAttribute="leading" secondItem="12n-ck-s7v" secondAttribute="leading" id="HgL-5e-LUp"/>
-                <constraint firstAttribute="bottom" secondItem="JNc-vb-s6o" secondAttribute="bottom" constant="20" id="JyO-CD-MGa"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JNc-vb-s6o" secondAttribute="bottom" constant="20" id="JyO-CD-MGa"/>
                 <constraint firstItem="ybb-GH-ZPu" firstAttribute="top" secondItem="h2L-u2-TQ6" secondAttribute="bottom" constant="10" id="RE7-tY-KLU"/>
                 <constraint firstItem="525-IW-pGx" firstAttribute="leading" secondItem="ybb-GH-ZPu" secondAttribute="leading" id="RsR-yX-dEA"/>
                 <constraint firstItem="rZt-wB-Bx5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="S50-fR-e04"/>

@@ -3,19 +3,22 @@ PODS:
   - AlamofireObjectMapper (4.1.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
+  - Kingfisher (3.6.0)
   - ObjectMapper (2.2.4)
   - TextAttributes (1.0)
 
 DEPENDENCIES:
   - AlamofireObjectMapper (~> 4.0)
+  - Kingfisher (~> 3.0)
   - TextAttributes
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
+  Kingfisher: 300035f9a40634dc9b452d946c9f22250688fecd
   ObjectMapper: 81d0e5d7c57129e3e93f29a04bdf9669542b37d2
   TextAttributes: 45b2713a1d174c377d320b51129c304eac381638
 
-PODFILE CHECKSUM: 2e061eb743c6749feea4a21908d00d16b27c80ed
+PODFILE CHECKSUM: df977f9907c6eb0b57be75967ced76d7dd2b5a43
 
 COCOAPODS: 1.1.1
