@@ -34,6 +34,6 @@ struct ThemeManager {
 
       UITableView.appearance().backgroundColor = .clear
 
-      UILabel.appearance().textColor = .text
+//      UILabel.appearance().textColor = .text
    }
 }
