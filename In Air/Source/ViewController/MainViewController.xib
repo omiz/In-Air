@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Modern Sans.otf">
+            <string>ModernSans</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="In_Air" customModuleProvider="target">
             <connections>
@@ -15,6 +20,7 @@
                 <outlet property="searchBar" destination="vCI-Ga-9cU" id="rER-tu-5Nf"/>
                 <outlet property="tableView" destination="xEf-Zt-DcX" id="NWO-67-WzW"/>
                 <outlet property="topConstraint" destination="8UZ-Xz-IGg" id="tkF-JM-Ont"/>
+                <outlet property="topLabel" destination="l6a-EQ-9bc" id="64R-sk-WV2"/>
                 <outlet property="view" destination="Ocx-Eq-EAb" id="J06-FD-yGs"/>
             </connections>
         </placeholder>
@@ -23,6 +29,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release to select" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6a-EQ-9bc">
+                    <rect key="frame" x="120" y="-115" width="136" height="15"/>
+                    <fontDescription key="fontDescription" name="ModernSans" family="Modern Sans" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xEf-Zt-DcX">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,10 +52,10 @@
                     </connections>
                 </tableView>
                 <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-eQ-VrI">
-                    <rect key="frame" x="20" y="-120" width="335" height="120"/>
+                    <rect key="frame" x="20" y="-100" width="335" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="3Ha-MB-SJc"/>
+                        <constraint firstAttribute="height" constant="100" id="3Ha-MB-SJc"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="kvo-LN-1lh">
                         <size key="itemSize" width="75" height="100"/>
@@ -63,8 +75,10 @@
                 <constraint firstItem="xEf-Zt-DcX" firstAttribute="top" secondItem="Ocx-Eq-EAb" secondAttribute="top" id="6ze-jI-PBO"/>
                 <constraint firstItem="hZx-eQ-VrI" firstAttribute="bottom" secondItem="Ocx-Eq-EAb" secondAttribute="top" id="8UZ-Xz-IGg"/>
                 <constraint firstItem="hZx-eQ-VrI" firstAttribute="leading" secondItem="Ocx-Eq-EAb" secondAttribute="leading" constant="20" id="Huf-bs-Taq"/>
+                <constraint firstItem="l6a-EQ-9bc" firstAttribute="centerX" secondItem="Ocx-Eq-EAb" secondAttribute="centerX" id="Qyg-Xj-OwF"/>
                 <constraint firstAttribute="bottom" secondItem="xEf-Zt-DcX" secondAttribute="bottom" id="W1J-oL-jQq"/>
                 <constraint firstAttribute="trailing" secondItem="xEf-Zt-DcX" secondAttribute="trailing" id="k9J-oh-7ay"/>
+                <constraint firstItem="l6a-EQ-9bc" firstAttribute="bottom" secondItem="hZx-eQ-VrI" secondAttribute="top" id="pfb-1m-olo"/>
                 <constraint firstAttribute="trailing" secondItem="hZx-eQ-VrI" secondAttribute="trailing" constant="20" id="vpy-zZ-1xg"/>
             </constraints>
             <point key="canvasLocation" x="-388.5" y="54.5"/>

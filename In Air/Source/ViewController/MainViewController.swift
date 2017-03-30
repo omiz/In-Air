@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
       return MainViewController(nibName: "MainViewController", bundle: nil)
    }
 
+   @IBOutlet weak var topLabel: UILabel!
    @IBOutlet weak var searchBar: UISearchBar!
    @IBOutlet weak var tableView: UITableView!
    @IBOutlet weak var collectionView: UICollectionView!
@@ -187,6 +188,10 @@ class MainViewController: UIViewController {
 
    func checkTouchEnd(_ gesture: UIPanGestureRecognizer) {
       guard gesture.state == .ended, isCollectionActive else {
+         return
+      }
+
+      guard !topLabel.frame.origin.y.isLess(than: 0) else {
          return
       }
 
