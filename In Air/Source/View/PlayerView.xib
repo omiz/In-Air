@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,13 +27,6 @@
                         <constraint firstAttribute="width" constant="30" id="Zdh-GL-gEc"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-GJ-2mh">
-                    <rect key="frame" x="438" y="21.5" width="32" height="32"/>
-                    <state key="normal" image="play"/>
-                    <connections>
-                        <action selector="playToggle:" destination="iN0-l3-epB" eventType="touchUpInside" id="Gif-4C-D9d"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQs-yD-z48">
                     <rect key="frame" x="46" y="29" width="60" height="22"/>
                     <fontDescription key="fontDescription" name="ModernSans" family="Modern Sans" pointSize="22"/>
@@ -41,13 +34,21 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Lpe-ep-OMR">
-                    <rect key="frame" x="13" y="27.5" width="20" height="20"/>
+                    <rect key="frame" x="13" y="27.666666666666664" width="20" height="19.999999999999993"/>
                     <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-GJ-2mh">
+                    <rect key="frame" x="417" y="6" width="61" height="62"/>
+                    <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                    <state key="normal" image="play"/>
+                    <connections>
+                        <action selector="playToggle:" destination="iN0-l3-epB" eventType="touchUpInside" id="Gif-4C-D9d"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Mgm-GJ-2mh" secondAttribute="trailing" constant="8" id="8V6-27-yG4"/>
+                <constraint firstAttribute="trailing" secondItem="Mgm-GJ-2mh" secondAttribute="trailing" id="8V6-27-yG4"/>
                 <constraint firstItem="Lpe-ep-OMR" firstAttribute="centerY" secondItem="Ivd-eI-4Jp" secondAttribute="centerY" id="Eyv-Np-Teb"/>
                 <constraint firstItem="Ivd-eI-4Jp" firstAttribute="bottom" secondItem="gQs-yD-z48" secondAttribute="bottom" constant="-5" id="RgV-W0-G3V"/>
                 <constraint firstItem="Ivd-eI-4Jp" firstAttribute="top" secondItem="gQs-yD-z48" secondAttribute="top" id="Ubk-xU-c7z"/>
@@ -69,6 +70,6 @@
         </view>
     </objects>
     <resources>
-        <image name="play" width="32" height="32"/>
+        <image name="play" width="21" height="21"/>
     </resources>
 </document>

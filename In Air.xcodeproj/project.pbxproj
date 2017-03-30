@@ -15,6 +15,10 @@
 		E01E13F81E7AD5B300CBE950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01E13F61E7AD5B300CBE950 /* LaunchScreen.storyboard */; };
 		E036065C1E8545D800F1500F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036065A1E8545D800F1500F /* MainViewController.swift */; };
 		E036065D1E8545D800F1500F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E036065B1E8545D800F1500F /* MainViewController.xib */; };
+		E03CA62A1E8D1F2700879985 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA6291E8D1F2700879985 /* Router.swift */; };
+		E03CA62C1E8D372D00879985 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA62B1E8D372D00879985 /* UserDefaults.swift */; };
+		E03CA62F1E8D391300879985 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA62D1E8D391300879985 /* IntroViewController.swift */; };
+		E03CA6301E8D391300879985 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E03CA62E1E8D391300879985 /* IntroViewController.xib */; };
 		E03D44651E88765D00B77DFC /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03D44641E88765D00B77DFC /* Notification.swift */; };
 		E040FB881E8B011B0054BB72 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E040FB871E8B011B0054BB72 /* UINavigationBar.swift */; };
 		E043BAB91E7B2C08002D7298 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043BAB81E7B2C08002D7298 /* Airport.swift */; };
@@ -25,6 +29,7 @@
 		E043BACE1E7B4EBC002D7298 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E043BACD1E7B4EBC002D7298 /* Colors.plist */; };
 		E043BAD11E7B5992002D7298 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043BAD01E7B5992002D7298 /* ThemeManager.swift */; };
 		E043BAD41E7B5B02002D7298 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043BAD31E7B5B02002D7298 /* Player.swift */; };
+		E05CC58B1E8DB23600703A8E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05CC58A1E8DB23600703A8E /* UIColor.swift */; };
 		E06CD2281E89303300199467 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06CD2271E89303300199467 /* UISearchBar.swift */; };
 		E09D32181E8990E6000D9C82 /* ContinentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D32161E8990E6000D9C82 /* ContinentCollectionViewCell.swift */; };
 		E09D32191E8990E6000D9C82 /* ContinentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09D32171E8990E6000D9C82 /* ContinentCollectionViewCell.xib */; };
@@ -62,6 +67,10 @@
 		E01E13F91E7AD5B300CBE950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E036065A1E8545D800F1500F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E036065B1E8545D800F1500F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		E03CA6291E8D1F2700879985 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E03CA62B1E8D372D00879985 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		E03CA62D1E8D391300879985 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		E03CA62E1E8D391300879985 /* IntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
 		E03D44641E88765D00B77DFC /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		E040FB871E8B011B0054BB72 /* UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		E043BAB81E7B2C08002D7298 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
@@ -72,6 +81,7 @@
 		E043BACD1E7B4EBC002D7298 /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
 		E043BAD01E7B5992002D7298 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E043BAD31E7B5B02002D7298 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		E05CC58A1E8DB23600703A8E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E06CD2271E89303300199467 /* UISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
 		E09D32161E8990E6000D9C82 /* ContinentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinentCollectionViewCell.swift; sourceTree = "<group>"; };
 		E09D32171E8990E6000D9C82 /* ContinentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContinentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -155,6 +165,31 @@
 			path = "In Air";
 			sourceTree = "<group>";
 		};
+		E03CA6231E8D1A6500879985 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				E03CA6311E8D391800879985 /* Pages */,
+				E03CA62D1E8D391300879985 /* IntroViewController.swift */,
+				E03CA62E1E8D391300879985 /* IntroViewController.xib */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		E03CA6281E8D1EAC00879985 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E03CA6291E8D1F2700879985 /* Router.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		E03CA6311E8D391800879985 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pages;
+			sourceTree = "<group>";
+		};
 		E043BAAD1E7B27BD002D7298 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +243,8 @@
 				E06CD2271E89303300199467 /* UISearchBar.swift */,
 				E09D321A1E89926A000D9C82 /* UICollectionView.swift */,
 				E040FB871E8B011B0054BB72 /* UINavigationBar.swift */,
+				E03CA62B1E8D372D00879985 /* UserDefaults.swift */,
+				E05CC58A1E8DB23600703A8E /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -285,6 +322,7 @@
 		E0BA74E81E7F311900A1C830 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E03CA6231E8D1A6500879985 /* Intro */,
 				E0E1D1D01E8BD42B00B5B94B /* Airport */,
 				E036065A1E8545D800F1500F /* MainViewController.swift */,
 				E036065B1E8545D800F1500F /* MainViewController.xib */,
@@ -304,6 +342,7 @@
 		E0E1D1D51E8BEA4B00B5B94B /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E03CA6281E8D1EAC00879985 /* Router */,
 				E0E1D1D61E8BEA5900B5B94B /* Weather */,
 			);
 			name = API;
@@ -405,6 +444,7 @@
 				E036065D1E8545D800F1500F /* MainViewController.xib in Resources */,
 				E0BA74D61E7EE88600A1C830 /* Podfile in Resources */,
 				E0E1D1D41E8BD48A00B5B94B /* AirportPreviewViewController.xib in Resources */,
+				E03CA6301E8D391300879985 /* IntroViewController.xib in Resources */,
 				E0D2E4E51E880151000D6D1D /* PlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,12 +508,16 @@
 				E043BABB1E7B3027002D7298 /* Continent.swift in Sources */,
 				E043BAD41E7B5B02002D7298 /* Player.swift in Sources */,
 				E0E1D1D31E8BD48A00B5B94B /* AirportPreviewViewController.swift in Sources */,
+				E05CC58B1E8DB23600703A8E /* UIColor.swift in Sources */,
+				E03CA62A1E8D1F2700879985 /* Router.swift in Sources */,
+				E03CA62F1E8D391300879985 /* IntroViewController.swift in Sources */,
 				E043BAB91E7B2C08002D7298 /* Airport.swift in Sources */,
 				E043BABD1E7B314F002D7298 /* Music.swift in Sources */,
 				E0D2E4E81E880C27000D6D1D /* AudioEqualizer.swift in Sources */,
 				E0BA74E21E7EF72200A1C830 /* DataManager.swift in Sources */,
 				E01E13EE1E7AD5B300CBE950 /* AppDelegate.swift in Sources */,
 				E0BA74D21E7EE00E00A1C830 /* UIView.swift in Sources */,
+				E03CA62C1E8D372D00879985 /* UserDefaults.swift in Sources */,
 				E06CD2281E89303300199467 /* UISearchBar.swift in Sources */,
 				E09D32181E8990E6000D9C82 /* ContinentCollectionViewCell.swift in Sources */,
 				E0E1D1D81E8BEA7000B5B94B /* WeatherManager.swift in Sources */,

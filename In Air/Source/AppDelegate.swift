@@ -15,21 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static var shared: AppDelegate!
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         AppDelegate.shared = self
 
         ThemeManager.apply()
-        
-        let nav = UINavigationController(rootViewController: MainViewController.instance)
-        nav.isToolbarHidden = true
 
-        self.window?.rootViewController = nav
-        self.window?.makeKeyAndVisible()
-
-        PlayerView.shared.prepare()
-
-        return false
+        return Router.launch(in: window, with: launchOptions)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
