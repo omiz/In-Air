@@ -18,7 +18,7 @@ class Router {
 
 //      let controller = firstStart ? IntroViewController.instance : MainViewController.instance
 
-      set(UINavigationController(rootViewController: IntroViewController.instance))
+      set(UINavigationController(rootViewController: MainViewController.instance))
 
       PlayerView.shared.prepare()
 

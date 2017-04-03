@@ -30,9 +30,15 @@ struct ThemeManager {
 
       UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
 
-      UIView.appearance().backgroundColor = .clear
+//      UIView.appearance().backgroundColor = .clear
 
       UITableView.appearance().backgroundColor = .clear
+
+      UITableViewCell.appearance().backgroundColor = .clear
+
+      UICollectionViewCell.appearance().backgroundColor = .clear
+
+      UICollectionView.appearance().backgroundColor = .clear
 
 //      UILabel.appearance().textColor = .text
    }

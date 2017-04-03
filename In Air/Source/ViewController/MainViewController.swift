@@ -42,7 +42,9 @@ class MainViewController: UIViewController {
       return tableView.contentOffset.y < -safeSpace
    }
 
-   let safeSpace: CGFloat = 50
+   var safeSpace: CGFloat {
+      return collectionView.frame.height
+   }
 
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -61,6 +63,7 @@ class MainViewController: UIViewController {
    }
 
    func setup() {
+      automaticallyAdjustsScrollViewInsets = false
       view.backgroundColor = .background
 
       setAttributedTitle("In Air")
@@ -140,7 +143,11 @@ class MainViewController: UIViewController {
    }
 
    func pan(_ gesture: UIPanGestureRecognizer) {
+
       guard isCollectionActive else {
+         collectionView.indexPathsForSelectedItems?.forEach {
+            collectionView.deselectItem(at: $0)
+         }
          return
       }
 
@@ -187,11 +194,7 @@ class MainViewController: UIViewController {
    }
 
    func checkTouchEnd(_ gesture: UIPanGestureRecognizer) {
-      guard gesture.state == .ended, isCollectionActive else {
-         return
-      }
-
-      guard !topLabel.frame.origin.y.isLess(than: 0) else {
+      guard gesture.state == .ended else {
          return
       }
 
@@ -271,6 +274,8 @@ extension MainCollectionView: UITableViewDelegate, UITableViewDataSource {
       guard spaceFromTop >= 0 else {
          return
       }
+
+      topLabel.text = spaceFromTop > collectionView.frame.height ? "Release to select" : "Pull to select continent"
 
       topConstraint.constant = spaceFromTop
    }

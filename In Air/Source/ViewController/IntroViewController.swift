@@ -15,6 +15,7 @@ class IntroViewController: UIViewController {
    }
 
    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
    @IBOutlet weak var button: UIButton!
 
 
@@ -23,15 +24,16 @@ class IntroViewController: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
 
-      collectionView.register(ContinentCollectionViewCell.self)
+      collectionView.register(IntroPageCollectionViewCell.self)
 
       setup()
    }
 
    func setup() {
+      automaticallyAdjustsScrollViewInsets = false
       navigationController?.isNavigationBarHidden = true
       view.backgroundColor = .clear
-      button.tintColor = .blue
+//      button.tintColor = .blue
    }
 
    override func didReceiveMemoryWarning() {
@@ -53,12 +55,13 @@ extension IntroViewController: UICollectionViewDataSource, UICollectionViewDeleg
    }
 
    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+      pageControl.numberOfPages = 10
       return 10
    }
 
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-      return collectionView.cell(ContinentCollectionViewCell.self, indexPath: indexPath)
+      return collectionView.cell(IntroPageCollectionViewCell.self, indexPath: indexPath)
    }
 
 
@@ -73,10 +76,12 @@ extension IntroViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
       let isDark = index.truncatingRemainder(dividingBy: 2.0) > 0
 
-      let first: UIColor = isDark ? .yellow : .red
-      let second: UIColor = isDark ? .red : .yellow
+      let first: UIColor = isDark ? UIColor(hexString: "0B0B0B") : UIColor(hexString: "252525")
+      let second: UIColor = isDark ? UIColor(hexString: "252525") : UIColor(hexString: "0B0B0B")
 
       view.backgroundColor = UIColor.between(first: first, second: second, percent: abs(percent - round(percent)))
+
+      pageControl.currentPage = Int(index)
    }
 }
 
