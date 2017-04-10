@@ -31,6 +31,10 @@
 		E043BAD41E7B5B02002D7298 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043BAD31E7B5B02002D7298 /* Player.swift */; };
 		E05CC58B1E8DB23600703A8E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05CC58A1E8DB23600703A8E /* UIColor.swift */; };
 		E06CD2281E89303300199467 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06CD2271E89303300199467 /* UISearchBar.swift */; };
+		E07B7ED41E94FAD000519E2B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7ED21E94FAD000519E2B /* SettingsViewController.swift */; };
+		E07B7ED71E95034700519E2B /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7ED61E95034700519E2B /* Setting.swift */; };
+		E07B7EDB1E9505A000519E2B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E07B7EDA1E9505A000519E2B /* Settings.bundle */; };
+		E07B7EDE1E950F8000519E2B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7EDD1E950F8000519E2B /* Settings.swift */; };
 		E08D9AE01E91443D00F97E16 /* IntroPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08D9ADE1E91443D00F97E16 /* IntroPageCollectionViewCell.swift */; };
 		E08D9AE11E91443D00F97E16 /* IntroPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E08D9ADF1E91443D00F97E16 /* IntroPageCollectionViewCell.xib */; };
 		E09D32181E8990E6000D9C82 /* ContinentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D32161E8990E6000D9C82 /* ContinentCollectionViewCell.swift */; };
@@ -49,6 +53,12 @@
 		E0D2E4E31E880119000D6D1D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D2E4E21E880119000D6D1D /* PlayerView.swift */; };
 		E0D2E4E51E880151000D6D1D /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0D2E4E41E880151000D6D1D /* PlayerView.xib */; };
 		E0D2E4E81E880C27000D6D1D /* AudioEqualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D2E4E71E880C27000D6D1D /* AudioEqualizer.swift */; };
+		E0DB2F2E1E9C077100346FCE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0DB2F2D1E9C077100346FCE /* Settings.storyboard */; };
+		E0DB2F321E9C121900346FCE /* SliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DB2F301E9C121900346FCE /* SliderTableViewCell.swift */; };
+		E0DB2F351E9C139400346FCE /* ZSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DB2F341E9C139400346FCE /* ZSlider.swift */; };
+		E0DB2F371E9C220900346FCE /* HelpUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DB2F361E9C220900346FCE /* HelpUsViewController.swift */; };
+		E0DB2F391E9C222700346FCE /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DB2F381E9C222700346FCE /* LegalViewController.swift */; };
+		E0DB2F3B1E9C260500346FCE /* Legal.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E0DB2F3A1E9C260500346FCE /* Legal.rtf */; };
 		E0E1D1D31E8BD48A00B5B94B /* AirportPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D1D11E8BD48A00B5B94B /* AirportPreviewViewController.swift */; };
 		E0E1D1D41E8BD48A00B5B94B /* AirportPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E1D1D21E8BD48A00B5B94B /* AirportPreviewViewController.xib */; };
 		E0E1D1D81E8BEA7000B5B94B /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E1D1D71E8BEA7000B5B94B /* WeatherManager.swift */; };
@@ -85,6 +95,10 @@
 		E043BAD31E7B5B02002D7298 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E05CC58A1E8DB23600703A8E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E06CD2271E89303300199467 /* UISearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
+		E07B7ED21E94FAD000519E2B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E07B7ED61E95034700519E2B /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		E07B7EDA1E9505A000519E2B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		E07B7EDD1E950F8000519E2B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E08D9ADE1E91443D00F97E16 /* IntroPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		E08D9ADF1E91443D00F97E16 /* IntroPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		E09D32161E8990E6000D9C82 /* ContinentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -103,6 +117,12 @@
 		E0D2E4E21E880119000D6D1D /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		E0D2E4E41E880151000D6D1D /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		E0D2E4E71E880C27000D6D1D /* AudioEqualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEqualizer.swift; sourceTree = "<group>"; };
+		E0DB2F2D1E9C077100346FCE /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		E0DB2F301E9C121900346FCE /* SliderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderTableViewCell.swift; sourceTree = "<group>"; };
+		E0DB2F341E9C139400346FCE /* ZSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZSlider.swift; sourceTree = "<group>"; };
+		E0DB2F361E9C220900346FCE /* HelpUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpUsViewController.swift; sourceTree = "<group>"; };
+		E0DB2F381E9C222700346FCE /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
+		E0DB2F3A1E9C260500346FCE /* Legal.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Legal.rtf; sourceTree = "<group>"; };
 		E0E1D1D11E8BD48A00B5B94B /* AirportPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportPreviewViewController.swift; sourceTree = "<group>"; };
 		E0E1D1D21E8BD48A00B5B94B /* AirportPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirportPreviewViewController.xib; sourceTree = "<group>"; };
 		E0E1D1D71E8BEA7000B5B94B /* WeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
@@ -224,6 +244,7 @@
 				E043BABA1E7B3027002D7298 /* Continent.swift */,
 				E043BABE1E7B3246002D7298 /* Group.swift */,
 				E043BABC1E7B314F002D7298 /* Music.swift */,
+				E07B7ED61E95034700519E2B /* Setting.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -258,6 +279,7 @@
 		E043BAC91E7B4D65002D7298 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E07B7ED91E95050A00519E2B /* Settings */,
 				E043BACA1E7B4D7C002D7298 /* Color */,
 				E01456331E8475CD004AD980 /* Fonts */,
 				E0BA74E71E7F30CE00A1C830 /* Storyboard */,
@@ -284,12 +306,42 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		E0703F051E92C81500857882 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E0DB2F2F1E9C11F300346FCE /* Cell */,
+				E07B7ED21E94FAD000519E2B /* SettingsViewController.swift */,
+				E0DB2F2D1E9C077100346FCE /* Settings.storyboard */,
+				E0DB2F361E9C220900346FCE /* HelpUsViewController.swift */,
+				E0DB2F381E9C222700346FCE /* LegalViewController.swift */,
+				E0DB2F3A1E9C260500346FCE /* Legal.rtf */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		E07B7ED91E95050A00519E2B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E07B7EDA1E9505A000519E2B /* Settings.bundle */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		E07B7EDC1E950F6800519E2B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E07B7EDD1E950F8000519E2B /* Settings.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		E0BA74CE1E7EDD1500A1C830 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E0D2E4E71E880C27000D6D1D /* AudioEqualizer.swift */,
 				E0D2E4E21E880119000D6D1D /* PlayerView.swift */,
 				E0D2E4E41E880151000D6D1D /* PlayerView.xib */,
+				E0DB2F341E9C139400346FCE /* ZSlider.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,6 +356,7 @@
 		E0BA74E61E7F30B800A1C830 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E07B7EDC1E950F6800519E2B /* Settings */,
 				E0E1D1D51E8BEA4B00B5B94B /* API */,
 				E043BAAD1E7B27BD002D7298 /* Cells */,
 				E043BAB61E7B2AA7002D7298 /* Core */,
@@ -328,12 +381,21 @@
 		E0BA74E81E7F311900A1C830 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E0703F051E92C81500857882 /* Settings */,
 				E03CA6231E8D1A6500879985 /* Intro */,
 				E0E1D1D01E8BD42B00B5B94B /* Airport */,
 				E036065A1E8545D800F1500F /* MainViewController.swift */,
 				E036065B1E8545D800F1500F /* MainViewController.xib */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E0DB2F2F1E9C11F300346FCE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E0DB2F301E9C121900346FCE /* SliderTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		E0E1D1D01E8BD42B00B5B94B /* Airport */ = {
@@ -443,13 +505,16 @@
 				E0D2E4DD1E87D1CF000D6D1D /* AirportTableViewCell.xib in Resources */,
 				E043BACE1E7B4EBC002D7298 /* Colors.plist in Resources */,
 				E0BA74E41E7EF95000A1C830 /* airports.json in Resources */,
+				E0DB2F2E1E9C077100346FCE /* Settings.storyboard in Resources */,
 				E01E13F81E7AD5B300CBE950 /* LaunchScreen.storyboard in Resources */,
 				E01456371E847842004AD980 /* Modern Sans.otf in Resources */,
 				E08D9AE11E91443D00F97E16 /* IntroPageCollectionViewCell.xib in Resources */,
+				E07B7EDB1E9505A000519E2B /* Settings.bundle in Resources */,
 				E01E13F51E7AD5B300CBE950 /* Assets.xcassets in Resources */,
 				E01E13F31E7AD5B300CBE950 /* Main.storyboard in Resources */,
 				E036065D1E8545D800F1500F /* MainViewController.xib in Resources */,
 				E0BA74D61E7EE88600A1C830 /* Podfile in Resources */,
+				E0DB2F3B1E9C260500346FCE /* Legal.rtf in Resources */,
 				E0E1D1D41E8BD48A00B5B94B /* AirportPreviewViewController.xib in Resources */,
 				E03CA6301E8D391300879985 /* IntroViewController.xib in Resources */,
 				E0D2E4E51E880151000D6D1D /* PlayerView.xib in Resources */,
@@ -512,13 +577,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E043BACC1E7B4D9A002D7298 /* Colors.swift in Sources */,
+				E0DB2F371E9C220900346FCE /* HelpUsViewController.swift in Sources */,
 				E043BABB1E7B3027002D7298 /* Continent.swift in Sources */,
 				E043BAD41E7B5B02002D7298 /* Player.swift in Sources */,
 				E0E1D1D31E8BD48A00B5B94B /* AirportPreviewViewController.swift in Sources */,
 				E05CC58B1E8DB23600703A8E /* UIColor.swift in Sources */,
 				E03CA62A1E8D1F2700879985 /* Router.swift in Sources */,
+				E07B7ED71E95034700519E2B /* Setting.swift in Sources */,
 				E03CA62F1E8D391300879985 /* IntroViewController.swift in Sources */,
 				E043BAB91E7B2C08002D7298 /* Airport.swift in Sources */,
+				E07B7EDE1E950F8000519E2B /* Settings.swift in Sources */,
 				E043BABD1E7B314F002D7298 /* Music.swift in Sources */,
 				E0D2E4E81E880C27000D6D1D /* AudioEqualizer.swift in Sources */,
 				E0BA74E21E7EF72200A1C830 /* DataManager.swift in Sources */,
@@ -531,11 +599,15 @@
 				E0D2E4DC1E87D1CF000D6D1D /* AirportTableViewCell.swift in Sources */,
 				E08D9AE01E91443D00F97E16 /* IntroPageCollectionViewCell.swift in Sources */,
 				E0D2E4E31E880119000D6D1D /* PlayerView.swift in Sources */,
+				E07B7ED41E94FAD000519E2B /* SettingsViewController.swift in Sources */,
+				E0DB2F391E9C222700346FCE /* LegalViewController.swift in Sources */,
+				E0DB2F351E9C139400346FCE /* ZSlider.swift in Sources */,
 				E043BABF1E7B3246002D7298 /* Group.swift in Sources */,
 				E03D44651E88765D00B77DFC /* Notification.swift in Sources */,
 				E0BA74CD1E7EC46000A1C830 /* UIImage.swift in Sources */,
 				E036065C1E8545D800F1500F /* MainViewController.swift in Sources */,
 				E040FB881E8B011B0054BB72 /* UINavigationBar.swift in Sources */,
+				E0DB2F321E9C121900346FCE /* SliderTableViewCell.swift in Sources */,
 				E0D2E4DF1E87D53A000D6D1D /* UITableView.swift in Sources */,
 				E0BA74D41E7EE81400A1C830 /* UIViewController.swift in Sources */,
 				E043BAD11E7B5992002D7298 /* ThemeManager.swift in Sources */,
@@ -665,7 +737,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C07C07AD7ED49FF37C61D039 /* Pods-In Air.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = J95NXUX723;
@@ -682,7 +754,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6B134C682EB39A56F8F1A1F /* Pods-In Air.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = J95NXUX723;

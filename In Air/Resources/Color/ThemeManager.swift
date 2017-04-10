@@ -17,7 +17,7 @@ struct ThemeManager {
 
       UINavigationBar.appearance().barTintColor = UIColor.background
       UINavigationBar.appearance().tintColor = UIColor.white
-      UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.accent]
+      UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
       UINavigationBar.appearance().isTranslucent = false
 
       UISwitch.appearance().onTintColor = UIColor.primary.withAlphaComponent(0.3)

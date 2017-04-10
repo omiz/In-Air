@@ -46,9 +46,15 @@ class MainViewController: UIViewController {
       return collectionView.frame.height
    }
 
+   var settingsBarButtonItem: UIBarButtonItem {
+      return UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(showSettings(_:)))
+   }
+
+//   var settingsItem:
    override func viewDidLoad() {
       super.viewDidLoad()
 
+      navigationItem.rightBarButtonItems = [settingsBarButtonItem]
       setup()
       setupContinents()
       setupPlayer()
@@ -133,6 +139,7 @@ class MainViewController: UIViewController {
    }
 
    func setupContinents() {
+      //TODO: Load continents from the server
       continents.append(Continent(0, title: "Africa", description: ""))
       continents.append(Continent(1, title: "Antarctica", description: ""))
       continents.append(Continent(2, title: "Asia", description: ""))
@@ -333,5 +340,15 @@ extension MainViewController: UIViewControllerPreviewingDelegate {
 
    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
 
+   }
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate {
+   func showSettings(_ item: UIBarButtonItem) {
+
+      guard let controller = UIStoryboard(name: "Settings", bundle: nil)
+         .instantiateInitialViewController() else { return }
+
+      navigationController?.pushViewController(controller, animated: true)
    }
 }
