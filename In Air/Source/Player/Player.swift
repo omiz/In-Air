@@ -9,12 +9,6 @@
 import Foundation
 import AVFoundation
 
-enum PlayerType {
-   case airport
-   case music
-   case all
-}
-
 protocol PlayerDelegate {
 
    func player(stateChanged state: PlayerState)
@@ -28,6 +22,18 @@ enum PlayerState: Int {
 
 class Player: NSObject {
 
+   enum Notifications: String, NotificationName {
+      case stateChanged
+
+      case airportChanged
+      case musicChanged
+   }
+
+   static var shared = Player()
+
+   var airportPlayer: AVPlayer
+   var musicplayer: AVPlayer
+
    //TODO: move the airport base link to the server
    let airportUrl = "http://mtl2.liveatc.net/"
 
@@ -40,86 +46,20 @@ class Player: NSObject {
          if state != oldValue {
             NotificationCenter.default.post(name: Notifications.stateChanged.name, object: state)
          }
+      }
+   }
 
-         if state == .stopped {
-            try? session.setActive(false)
+   var isMusicEnabled = Settings.shared.playMusic {
+      didSet {
+         guard !isMusicEnabled else {
+            return
          }
+
+         pauseMusic()
       }
    }
-
-   var airportVolume: Float{
-      get {
-         return airportPlayer.volume
-      }
-      set {
-         airportPlayer.volume = newValue
-      }
-   }
-
-   var musicVolume: Float {
-      get {
-         return musicplayer.volume
-      }
-      set {
-         musicplayer.volume = newValue
-      }
-   }
-
-   enum Notifications: String, NotificationName {
-      case stateChanged
-
-      case airportChanged
-      case musicChanged
-   }
-
-   var airportPlayer: AVPlayer
-   var musicplayer: AVPlayer
 
    var delegate: PlayerDelegate?
-
-   override init() {
-      airportPlayer = AVPlayer()
-      musicplayer = AVPlayer()
-
-      super.init()
-
-      commonInit()
-   }
-
-   func commonInit() {
-      airportPlayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.rate), options: .new, context: &airportPlayer)
-      airportPlayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.error), options: .new, context: &airportPlayer)
-      musicplayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.rate), options: .new, context: &musicplayer)
-
-      //TODO: load music from the server as a list
-      music = Music()
-
-      airportVolume = 0.7
-      musicVolume = 1
-   }
-
-   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-
-      guard keyPath == #keyPath(AVPlayer.rate) else { return }
-
-      guard context == &airportPlayer || context == &musicplayer else { return }
-
-      print(airportPlayer.error ?? "")
-      print(musicplayer.error ?? "")
-
-      let airPlaying = airportPlayer.isPlaying
-
-      let musicPlaying = musicplayer.isPlaying
-
-      state = airPlaying || musicPlaying ? .playing : .paused
-   }
-
-   class var shared : Player {
-      struct Static {
-         static let instance : Player = Player()
-      }
-      return Static.instance
-   }
 
    var airport: Airport? {
       didSet {
@@ -141,17 +81,52 @@ class Player: NSObject {
    }
 
    var isPlaying: Bool {
-      return airportPlayer.rate != 0 || musicplayer.rate != 0
+      return airportPlayer.isPlaying || musicplayer.isPlaying
    }
 
    var shouldPlayInBackground: Bool {
       get {
-         return UserDefaults.standard.bool(forKey: "shouldPlayInBackground")
+         return UserDefaults.standard.bool(forKey: #keyPath(shouldPlayInBackground))
       }
       set {
-         UserDefaults.standard.set(newValue, forKey: "shouldPlayInBackground")
+         UserDefaults.standard.set(newValue, forKey: #keyPath(shouldPlayInBackground))
          UserDefaults.standard.synchronize()
       }
+   }
+
+   override init() {
+      airportPlayer = AVPlayer()
+      musicplayer = AVPlayer()
+
+      super.init()
+
+      commonInit()
+   }
+
+   func commonInit() {
+      airportPlayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.rate), options: .new, context: &airportPlayer)
+      airportPlayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.error), options: .new, context: &airportPlayer)
+      musicplayer.addObserver(self, forKeyPath: #keyPath(AVPlayer.rate), options: .new, context: &musicplayer)
+
+      //TODO: load music from the server as a list
+      music = Music()
+
+      airportPlayer.volume = Settings.shared.airportVolume
+      musicplayer.volume = Settings.shared.musicVolume
+
+      setupGeneralObserver()
+   }
+
+   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+
+      guard keyPath == #keyPath(AVPlayer.rate) else { return }
+
+      guard context == &airportPlayer || context == &musicplayer else { return }
+
+      print(airportPlayer.error ?? "")
+      print(musicplayer.error ?? "")
+
+      state = isPlaying ? .playing : .paused
    }
 
    func setupAirport() {
@@ -177,48 +152,73 @@ class Player: NSObject {
       musicplayer.replaceCurrentItem(with: airportItem)
    }
 
-   func play(_ type: PlayerType = .all) {
+   func setupGeneralObserver() {
+      NotificationCenter.default.addObserver(forName: NSNotification.Name.airportVolumeChanged, object: nil, queue: .current) {
+         self.airportPlayer.volume = $0.object as? Float ?? 0.5
+      }
+
+      NotificationCenter.default.addObserver(forName: NSNotification.Name.musicVolumeChanged, object: nil, queue: .current) {
+         self.musicplayer.volume = $0.object as? Float ?? 0.5
+      }
+
+      NotificationCenter.default.addObserver(forName: NSNotification.Name.playMusicChanged, object: nil, queue: .current) {
+         self.isMusicEnabled = $0.object as? Bool ?? true
+
+
+      }
+   }
+
+   func play() {
       pause()
       let category = shouldPlayInBackground ? AVAudioSessionCategoryPlayback : AVAudioSessionCategorySoloAmbient
       try? session.setCategory(category, with: .mixWithOthers)
       try? session.setActive(true)
 
-      switch type {
-      case .airport:
-         setupAirport()
-         airportPlayer.play()
-      case .music:
-         setupMusic()
-         musicplayer.play()
-      default:
-         setupAirport()
-         setupMusic()
-         musicplayer.play()
-         airportPlayer.play()
-      }
+      playAirport()
+      playMusic()
    }
 
-   func pause(_ type: PlayerType = .all) {
+   func playAirport() {
+      setupAirport()
+      airportPlayer.play()
+   }
+
+   func playMusic() {
+      guard isMusicEnabled else {
+         return
+      }
+
+      setupMusic()
+      musicplayer.play()
+   }
+
+   func pause() {
       guard isPlaying else {
          return
       }
       
-      switch type {
-      case .airport:
-         airportPlayer.pause()
-         airportPlayer.replaceCurrentItem(with: nil)
-      case .music:
-         musicplayer.pause()
-         musicplayer.replaceCurrentItem(with: nil)
-      default:
-         airportPlayer.pause()
-         musicplayer.pause()
-
-         airportPlayer.replaceCurrentItem(with: nil)
-         musicplayer.replaceCurrentItem(with: nil)
-      }
+      pauseAirport()
+      pauseMusic()
 
       try? session.setActive(false, with: .notifyOthersOnDeactivation)
+   }
+
+   func pauseAirport() {
+      guard airportPlayer.isPlaying else {
+         return
+      }
+
+      airportPlayer.pause()
+      airportPlayer.replaceCurrentItem(with: nil)
+   }
+
+   func pauseMusic() {
+      guard musicplayer.isPlaying else {
+         return
+      }
+
+      musicplayer.pause()
+      musicplayer.replaceCurrentItem(with: nil)
    }
 
    func togglePlay() {

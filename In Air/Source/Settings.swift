@@ -12,67 +12,92 @@ class Settings {
 
    static let shared = Settings()
 
-   var cellularData: Bool {
+   @objc var cellularData: Bool {
       get {
-         return UserDefaults.standard.bool(forKey: "cellularData")
+         guard let _ = UserDefaults.standard.object(forKey: #keyPath(cellularData)) else { return false }
+
+         return UserDefaults.standard.bool(forKey: #keyPath(cellularData))
       }
       set {
-         UserDefaults.standard.set(newValue, forKey: "cellularData")
+         UserDefaults.standard.set(newValue, forKey: #keyPath(cellularData))
          UserDefaults.standard.synchronize()
          NotificationCenter.default.post(name: Notification.Name.cellularDataChanged, object: cellularData)
       }
    }
 
-   var airportVolume: Float {
+   @objc var airportVolume: Float {
       get {
-         return UserDefaults.standard.float(forKey: "airportVolume")
+         guard let _ = UserDefaults.standard.object(forKey: #keyPath(airportVolume)) else { return 0.4 }
+
+         return UserDefaults.standard.float(forKey: #keyPath(airportVolume))
       }
       set {
-         UserDefaults.standard.set(newValue, forKey: "airportVolume")
+         UserDefaults.standard.set(newValue, forKey: #keyPath(airportVolume))
          UserDefaults.standard.synchronize()
          NotificationCenter.default.post(name: Notification.Name.airportVolumeChanged, object: airportVolume)
       }
    }
 
-   var stopIfOffline: Bool {
+   @objc var stopIfOffline: Bool {
       get {
-         return UserDefaults.standard.bool(forKey: "stopIfOffline")
+         guard let _ = UserDefaults.standard.object(forKey: #keyPath(stopIfOffline)) else { return false }
+
+         return UserDefaults.standard.bool(forKey: #keyPath(stopIfOffline))
       }
       set {
-         UserDefaults.standard.set(newValue, forKey: "stopIfOffline")
+         UserDefaults.standard.set(newValue, forKey: #keyPath(stopIfOffline))
          UserDefaults.standard.synchronize()
-         NotificationCenter.default.post(name: Notification.Name.stopIfOfflineChanged, object: airportVolume)
+         NotificationCenter.default.post(name: Notification.Name.stopIfOfflineChanged, object: stopIfOffline)
       }
    }
 
-   var showNearest: Bool {
+   @objc var showNearest: Bool {
       get {
-         return UserDefaults.standard.bool(forKey: "showNearest")
+         guard let _ = UserDefaults.standard.object(forKey: #keyPath(showNearest)) else { return true }
+
+         return UserDefaults.standard.bool(forKey: #keyPath(showNearest))
       }
       set {
-         UserDefaults.standard.set(newValue, forKey: "showNearest")
+         UserDefaults.standard.set(newValue, forKey: #keyPath(showNearest))
          UserDefaults.standard.synchronize()
          NotificationCenter.default.post(name: Notification.Name.showNearestChanged, object: showNearest)
       }
    }
 
-   var musicVolume: Float {
+   @objc var musicVolume: Float {
       get {
-         return UserDefaults.standard.float(forKey: "musicVolume")
+         guard let _ = UserDefaults.standard.object(forKey: #keyPath(musicVolume)) else { return 0.4 }
+
+         return UserDefaults.standard.float(forKey: #keyPath(musicVolume))
       }
       set {
-         UserDefaults.standard.set(newValue, forKey: "musicVolume")
+         UserDefaults.standard.set(newValue, forKey: #keyPath(musicVolume))
          UserDefaults.standard.synchronize()
          NotificationCenter.default.post(name: Notification.Name.musicVolumeChanged, object: musicVolume)
       }
    }
 
-   var automaticalyDownload: Bool {
+   @objc var playMusic: Bool {
       get {
-         return UserDefaults.standard.bool(forKey: "automaticalyDownload")
+         guard let _ = UserDefaults.standard.object(forKey: #keyPath(playMusic)) else { return true }
+
+         return UserDefaults.standard.bool(forKey: #keyPath(playMusic))
       }
       set {
-         UserDefaults.standard.set(newValue, forKey: "automaticalyDownload")
+         UserDefaults.standard.set(newValue, forKey: #keyPath(playMusic))
+         UserDefaults.standard.synchronize()
+         NotificationCenter.default.post(name: Notification.Name.playMusicChanged, object: playMusic)
+      }
+   }
+
+   @objc var automaticalyDownload: Bool {
+      get {
+         guard let _ = UserDefaults.standard.object(forKey: #keyPath(automaticalyDownload)) else { return false }
+
+         return UserDefaults.standard.bool(forKey: #keyPath(automaticalyDownload))
+      }
+      set {
+         UserDefaults.standard.set(newValue, forKey: #keyPath(automaticalyDownload))
          UserDefaults.standard.synchronize()
          NotificationCenter.default.post(name: Notification.Name.automaticalyDownloadChanged, object: automaticalyDownload)
       }
@@ -85,5 +110,6 @@ extension Notification.Name {
    static let stopIfOfflineChanged = Notification.Name("stopIfOfflineChanged")
    static let showNearestChanged = Notification.Name("showNearestChanged")
    static let musicVolumeChanged = Notification.Name("musicVolumeChanged")
+   static let playMusicChanged = Notification.Name("playMusicChanged")
    static let automaticalyDownloadChanged = Notification.Name("automaticalyDownloadChanged")
 }

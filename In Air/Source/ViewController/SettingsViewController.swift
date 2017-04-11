@@ -16,6 +16,7 @@ class SettingsViewController: UITableViewController {
    @IBOutlet weak var showNearest: UISwitch!
    @IBOutlet weak var musicVolume: ZSlider!
    @IBOutlet weak var automaticalyDownload: UISwitch!
+   @IBOutlet weak var playMusic: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,11 @@ class SettingsViewController: UITableViewController {
    @IBAction func musicVolumeChanged(_ sender: ZSlider) {
       Settings.shared.musicVolume = sender.value
    }
+
+   @IBAction func playMusicChanged(_ sender: UISwitch) {
+      Settings.shared.playMusic = sender.isOn
+   }
+
 
    @IBAction func automaticallyDownloadChanged(_ sender: UISwitch) {
       Settings.shared.automaticalyDownload = sender.isOn
